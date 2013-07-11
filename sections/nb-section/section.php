@@ -29,10 +29,7 @@ class nicksBaseSection extends PageLinesSection {
     // get_the_id();       retrieves the clone id of the section
 
     // RUNS ALL TIME - This loads all the time, even if the section isn't on the page. Stuff like actions and things can go here, as well as post type setup functions
-    function section_persistent(){
-
-
-    }
+    function section_persistent(){}
 
     // LOAD SCRIPTS
     function section_scripts(){
@@ -66,8 +63,6 @@ class nicksBaseSection extends PageLinesSection {
     // SECTION MARKUP - This is the function that outputs all the HTML onto the page. Put all your viewable content here
    	function section_template() {
 
-   		// Use this to get the id of the cloned section
-   		// $cloneid = get_the_id();
         echo 'hi';
 
    	}
@@ -129,7 +124,7 @@ class nicksBaseSection extends PageLinesSection {
             'type'                  => 'image_upload',
             'title'                 => __('Image Upload','nb-section'),
             'imgsize'               => '16',        // * The image preview 'max' size
-            'sizelimit'             => '512000'     // * Image upload max size default 512kb
+            'sizelimit'             => '512000',     // * Image upload max size default 512kb
         );
 
         // Color Picker
@@ -183,7 +178,7 @@ class nicksBaseSection extends PageLinesSection {
         // Link
         $options[] = array(
             'key'                   => 'nbs_some_key',
-            'type'                  => 'select_icon',
+            'type'                  => 'link',
             'title'                 => __('Visit this link','nb-section'),
             'url'                   => 'http://www.pagelinesdevcamp.com',
             'classes'               => 'btn-info' // you can also use btn-primary, btn-warning, btn-success, btn-inverse
@@ -192,7 +187,7 @@ class nicksBaseSection extends PageLinesSection {
         // Button Select
         $options[] = array(
             'key'                   => 'nbs_some_key',
-            'type'                  => 'select_icon',
+            'type'                  => 'select_button',
             'title'                 => __('Select a button','nb-section'),
         );
 
