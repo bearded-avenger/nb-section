@@ -40,7 +40,8 @@ class nicksBaseSection extends PageLinesSection {
     function section_head() {
 
     	// Always use jQuery and never $ to avoid issues with other store products
-    	/*
+
+        /*
     	?><script>
 	    	jQuery(document).ready(function(){
 
@@ -102,6 +103,7 @@ class nicksBaseSection extends PageLinesSection {
 
         // Welcome
 		$options[] = array(
+            'span'                  => 2, // special type that makes the option wider
             'key'                   => 'nbs_some_key',
             'type'                  => 'template',
             'title'                 => __('Welcome to My Section','nb-section'),
@@ -115,7 +117,7 @@ class nicksBaseSection extends PageLinesSection {
             'title'                 => __('Count Select','nb-section'),
             'count_start'           => 1,            // Starting Count Number
             'count_number'          => 100,          // Ending Count Number
-            'suffix'                => '%'          // * Added to the end of the value
+            //'suffix'                => '%'          // * Added to the end of the value and optional
         );
 
         // Image Upload
@@ -149,16 +151,6 @@ class nicksBaseSection extends PageLinesSection {
             'type'                  => 'select_menu',
             'title'                 => __('Menu Select','nb-section'),
         );
-
-        // Select Taxonomy
-        /*
-        $options[] = array(
-            'key'                   => 'nbs_some_key',
-            'type'                  => 'select_taxonomy',
-            'post_type'             => 'post', // the post type to grab taxonomies from
-            'title'                 => __('Select Category','nb-section'),
-        );
-        */
 
         // Fonts - there is a second step required in order to get this part working. in section head, there's an example showing how to load a custom font, targeting a specific class in your section
         $options[] = array(
