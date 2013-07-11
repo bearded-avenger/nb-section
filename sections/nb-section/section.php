@@ -68,6 +68,7 @@ class nicksBaseSection extends PageLinesSection {
 
    		// Use this to get the id of the cloned section
    		// $cloneid = get_the_id();
+        echo 'hi';
 
    	}
 
@@ -84,7 +85,7 @@ class nicksBaseSection extends PageLinesSection {
 
 		ob_start();
 
-		?><div style="font-size:12px;line-height:14px;color:#444;"><p><?php e_('You can have some custom text here.','nb-section');?></p></div><?php
+		?><div style="font-size:12px;line-height:14px;color:#444;"><p><?php _e('You can have some custom text here.','nb-section');?></p></div><?php
 
 		return ob_get_clean();
 	}
@@ -155,12 +156,14 @@ class nicksBaseSection extends PageLinesSection {
         );
 
         // Select Taxonomy
+        /*
         $options[] = array(
             'key'                   => 'nbs_some_key',
             'type'                  => 'select_taxonomy',
-            'post_type'             => 'post' // the post type to grab taxonomies from
+            'post_type'             => 'post', // the post type to grab taxonomies from
             'title'                 => __('Select Category','nb-section'),
         );
+        */
 
         // Fonts - there is a second step required in order to get this part working. in section head, there's an example showing how to load a custom font, targeting a specific class in your section
         $options[] = array(
