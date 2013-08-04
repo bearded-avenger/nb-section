@@ -6,7 +6,7 @@
 	Description: A base section to be used to start new sections.
 	Class Name: nicksBaseSection
 	Demo:
-	Version: 1.0
+	Version: 1.1
 */
 
 /*
@@ -16,10 +16,10 @@ There are a few additional headers you can utlize. One of which is a full-width 
 
 class nicksBaseSection extends PageLinesSection {
 
-	// Declares a version, used in tracking the version of the script. For some reason it's needed with DMS along with declaring true at the end of the script to force into teh footer
-	const version = '1.0';
+	const version = '1.1';  // Declares a version, used in tracking the version of the script. For some reason it's needed with DMS along with declaring true at the end of the script to force into teh footer
 
     // READY TO USE VARIABLES
+    // $this->id;          section slug, in this case its nb-section
     // $this->base_url;    the base url of the section
     // $this->base_dir;    the base directory of the section
     // $this->images;      create an /images directory in your section, then use this variable for the path
@@ -66,6 +66,9 @@ class nicksBaseSection extends PageLinesSection {
 
         echo 'hi';
 
+        // call settings like so
+        // $var = $this->opt($this->id.'_some_key');
+
    	}
 
     // AFTER SECTION - you can  put HTML here and it will run outside of the section, and after it
@@ -93,7 +96,7 @@ class nicksBaseSection extends PageLinesSection {
 
         // Anatomy of an option type
         $opts[] = array(
-            'key'                   => 'option_key', // name of the key. always namespace
+            'key'                   => $this->id.'_some_key', // name of the key unique to this option
             'type'                  => 'text', // Option Type
             'title'                 => __('Super Cool Option', 'nb-section'), // same as 'label' if omitted
             'label'                 => __('Select Cool Option', 'nb-section'),
@@ -104,7 +107,7 @@ class nicksBaseSection extends PageLinesSection {
         // Welcome
 		$options[] = array(
             'span'                  => 2, // special type that makes the option wider
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'template',
             'title'                 => __('Welcome to My Section','nb-section'),
             'template'              => $this->welcome()
@@ -112,7 +115,7 @@ class nicksBaseSection extends PageLinesSection {
 
         // Count select
 		$options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'count_select',
             'title'                 => __('Count Select','nb-section'),
             'count_start'           => 1,            // Starting Count Number
@@ -122,7 +125,7 @@ class nicksBaseSection extends PageLinesSection {
 
         // Image Upload
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'image_upload',
             'title'                 => __('Image Upload','nb-section'),
             'imgsize'               => '16',        // * The image preview 'max' size
@@ -131,7 +134,7 @@ class nicksBaseSection extends PageLinesSection {
 
         // Color Picker
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'color',
             'title'                 => __('Color Picker','nb-section'),
             'default'               => '#FFFFFF', // always set a default
@@ -140,28 +143,28 @@ class nicksBaseSection extends PageLinesSection {
 
         // Text, Textareas and Checkboxes
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'text',  // or "textarea" or "check"
             'title'                 => __('Text','nb-section'),
         );
 
         // Select Menu
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'select_menu',
             'title'                 => __('Menu Select','nb-section'),
         );
 
         // Fonts - there is a second step required in order to get this part working. in section head, there's an example showing how to load a custom font, targeting a specific class in your section
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'type',
             'title'                 => __('Pick a Font','nb-section'),
         );
 
         // Icon selector
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'select_icon',
             'title'                 => __('Select an icon','nb-section'),
             'default'               => 'rocket'
@@ -169,7 +172,7 @@ class nicksBaseSection extends PageLinesSection {
 
         // Link
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'link',
             'title'                 => __('Visit this link','nb-section'),
             'url'                   => 'http://www.pagelinesdevcamp.com',
@@ -178,7 +181,7 @@ class nicksBaseSection extends PageLinesSection {
 
         // Button Select
         $options[] = array(
-            'key'                   => 'nbs_some_key',
+            'key'                   => $this->id.'_some_key',
             'type'                  => 'select_button',
             'title'                 => __('Select a button','nb-section'),
         );
@@ -189,7 +192,7 @@ class nicksBaseSection extends PageLinesSection {
 			'title'                 => __( 'Multiple Option Configuration', 'nb-section' ),
 			'opts'	                => array(
 				array(
-					'key'			=> 'nbs_some_key',
+					'key'			=> $this->id.'_some_key',
 					'type' 			=> 'count_select',
 					'count_start'	=> 1,
 					'count_number'	=> 12,
@@ -197,7 +200,7 @@ class nicksBaseSection extends PageLinesSection {
 					'label' 	    => __( 'Counter', 'nb-section' ),
 				),
 				array(
-					'key'			=> 'nbs_some_key',
+					'key'			=> $this->id.'_some_key',
 					'type' 			=> 'color',
 					'label' 	    => __( 'Color Picker', 'nb-section' ),
 					'default'       => '#0077CC'
