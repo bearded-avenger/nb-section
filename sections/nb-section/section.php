@@ -7,7 +7,17 @@
 	Class Name: nicksBaseSection
 	Demo:
 	Version: 1.1
+	Filter: component
 */
+
+/*
+
+*****META INFO TIPS*****
+
+	- You can set the filter value to one of the following: component, layout, full-width, format, gallery , nav, slider, social, widgetized, misc
+
+*/
+
 
 /*
 NOTE
