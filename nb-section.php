@@ -10,10 +10,9 @@
 	Filter: component
 */
 
-/*
+/**
+ * DMS Meta Info Tips
 
-*****META INFO TIPS*****
-
-	- You can set the filter value to one of the following: component, layout, full-width, format, gallery , nav, slider, social, widgetized, misc
-
+	// You can set the filter value to one of the following: component, layout, full-width, format, gallery , nav, slider, social, widgetized, misc
+	
 */
