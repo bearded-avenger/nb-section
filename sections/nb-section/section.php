@@ -26,7 +26,7 @@ There are a few additional headers you can utlize. One of which is a full-width 
 
 class nicksBaseSection extends PageLinesSection {
 
-	const version = '1.1';  // Declares a version, used in tracking the version of the script. For some reason it's needed with DMS along with declaring true at the end of the script to force into teh footer
+	const version = '1.1';  // Declares a version, used in tracking the version of the script. For some reason it's needed with DMS along with declaring true at the end of the script to force into the footer
 
     // READY TO USE VARIABLES
     // $this->id;          section slug, in this case its nb-section
@@ -85,7 +85,7 @@ class nicksBaseSection extends PageLinesSection {
 	function after_section_template(){}
 
 
-    // RUNS IN <FOOTER> - This is just like using wp_footer so this stuffs will in the foter of your site
+    // RUNS IN <FOOTER> - This is just like using wp_footer so this stuffs will in the footer of your site
 	function section_foot(){}
 
 
