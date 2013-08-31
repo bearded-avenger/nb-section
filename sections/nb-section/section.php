@@ -10,19 +10,14 @@
 	Filter: component
 */
 
-/*
+/**
+ * DMS Meta Info Tips
 
-*****META INFO TIPS*****
-
-	- You can set the filter value to one of the following: component, layout, full-width, format, gallery , nav, slider, social, widgetized, misc
-
+	// You can set the filter value to one of the following: component, layout, full-width, format, gallery , nav, slider, social, widgetized, misc
+	// There are a few additional headers you can utlize. One of which is a full-width filter that forces the section full-width. The other is an active loading filter, which, when applied, doesn't require a page refresh for the section to show up. however, sections with javascript shouldn't use this.
 */
 
 
-/*
-NOTE
-There are a few additional headers you can utlize. One of which is a full-width filter that forces the section full-width. The other is an active loading filter, which, when applie, doesn't require a page refresh for the section to show up. however, sections with javascript shouldn't use this.
-*/
 
 class nicksBaseSection extends PageLinesSection {
 
