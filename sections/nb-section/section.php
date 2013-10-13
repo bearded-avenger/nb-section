@@ -76,7 +76,7 @@ class nicksBaseSection extends PageLinesSection {
 
 
         // print iterated options - as of 1.1
-		$my_array 	= $this->opt('fotos_box_array');
+		$my_array 	= $this->opt('sample_item_array');
 		$out 		= '';
 
 		if( is_array($my_array) ){ // check if something is in the array (user set)
