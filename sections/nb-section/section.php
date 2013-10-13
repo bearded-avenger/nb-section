@@ -6,7 +6,7 @@
 	Description: A base section to be used to start new sections.
 	Class Name: nicksBaseSection
 	Demo:
-	Version: 1.1
+	Version: 1.2
 	Filter: component
 */
 
@@ -21,7 +21,7 @@
 
 class nicksBaseSection extends PageLinesSection {
 
-	const version = '1.1';  // Declares a version, used in tracking the version of the script. For some reason it's needed with DMS along with declaring true at the end of the script to force into the footer
+	const version = '1.2';  // Declares a version, used in tracking the version of the script. For some reason it's needed with DMS along with declaring true at the end of the script to force into the footer
 
     // READY TO USE VARIABLES
     // $this->id;          section slug, in this case its nb-section
@@ -60,7 +60,7 @@ class nicksBaseSection extends PageLinesSection {
     }
 
     // BEFORE SECTION - this adds a class to the section wrap. you can also put HTML here and it will run outside of the section, and before it
-    function before_section_template( $location = '' ) {
+    function before_section_template( $location = '', $clone_id = null ) {
 
 		//$this->wrapper_classes['background'] = 'special-class';
 
@@ -74,11 +74,29 @@ class nicksBaseSection extends PageLinesSection {
         // call settings like so
         // $var = $this->opt($this->id.'_some_key');
 
+
+        // print iterated options - as of 1.1
+		$my_array 	= $this->opt('fotos_box_array');
+		$out 		= '';
+
+		if( is_array($my_array) ){ // check if something is in the array (user set)
+
+			foreach( $my_array as $thing ){
+
+				$getlink	= pl_array_get('link', $thing);
+				$geticon 	= pl_array_get('icon', $thing, 'globe'); // passing a default as a 3rd param
+
+				$out    	.= sprintf('<a class="btn" href="%s"><i class="icon-%s"></i></a>',$getlink,$geticon);
+			}
+
+		} else {
+
+			echo setup_section_notify($this); // if nothing is set tell them to do something
+		}
+
+		printf('<div class="icon-wrap">%s</div>',$out); //print out the stuff
+
    	}
-
-    // AFTER SECTION - you can  put HTML here and it will run outside of the section, and after it
-	function after_section_template(){}
-
 
     // RUNS IN <FOOTER> - This is just like using wp_footer so this stuffs will in the footer of your site
 	function section_foot(){}
@@ -212,6 +230,26 @@ class nicksBaseSection extends PageLinesSection {
 				),
 			)
 
+		);
+
+		// Iterated Options - as of DMS 1.1
+		$options[] = array(
+			'key'				=> 'sample_item_array',
+			'type'				=> 'accordion',
+			'title'				=> __('Sample Item Array', 'nb-section'),
+			'col'				=> 4,
+			'opts' 				=> array(
+				array(
+					'key'		=> 'link', // dont worry about namespacing these at all they fall within your key scope above
+					'label'		=> __( 'Link', 'nb-section' ),
+					'type'		=> 'text'
+				),
+				array(
+					'key'		=> 'icon', // dont worry about namespacing these at all they fall within your key scope above
+					'label'		=> __( 'Icon', 'nb-section' ),
+					'type'		=> 'select_icon'
+				),
+			)
 		);
 
 		return $options;
