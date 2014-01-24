@@ -6,7 +6,7 @@
 	Description: A base section to be used to start new sections.
 	Class Name: nicksBaseSection
 	Demo:
-	Version: 1.1
+	Version: 1.2
 	Filter: component
 */
 
